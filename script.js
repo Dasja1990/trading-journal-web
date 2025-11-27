@@ -1,7 +1,11 @@
+// Массив для хранения сделок
 const tradeHistory = [];
 
+// Функция отображения таблицы портфолио
 function renderPortfolio() {
     const table = document.getElementById("portfolio");
+    
+    // Очищаем таблицу, оставляя только заголовки
     table.innerHTML = `
         <tr>
             <th>Asset</th>
@@ -10,6 +14,8 @@ function renderPortfolio() {
             <th>Current Value</th>
         </tr>
     `;
+    
+    // Добавляем каждую сделку в таблицу
     tradeHistory.forEach(trade => {
         const row = table.insertRow();
         row.insertCell(0).textContent = trade.asset;
@@ -19,6 +25,7 @@ function renderPortfolio() {
     });
 }
 
+// Функция добавления новой сделки
 function addTrade(asset, amount, price) {
     const trade = {
         asset,
@@ -27,9 +34,9 @@ function addTrade(asset, amount, price) {
         date: new Date().toLocaleString()
     };
     tradeHistory.push(trade);
-    renderPortfolio();
+    renderPortfolio(); // Обновляем таблицу после добавления
 }
 
-// Пример сделки для теста
+// Тестовые сделки для отображения таблицы
 addTrade("BTC", 0.01, 45000);
 addTrade("ETH", 0.5, 3000);
