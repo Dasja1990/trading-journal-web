@@ -40,3 +40,12 @@ function addTrade(asset, amount, price) {
 // Тестовые сделки для отображения таблицы
 addTrade("BTC", 0.01, 45000);
 addTrade("ETH", 0.5, 3000);
+document.getElementById("trade-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const asset = document.getElementById("asset").value.toUpperCase();
+    const amount = parseFloat(document.getElementById("amount").value);
+    const price = parseFloat(document.getElementById("price").value);
+    addTrade(asset, amount, price);
+    this.reset();
+});
+
