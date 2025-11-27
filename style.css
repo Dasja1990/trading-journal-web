@@ -13,3 +13,11 @@ th, td {
 th {
     background-color: #eee;
 }
+#portfolio th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#portfolio tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
