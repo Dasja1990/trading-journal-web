@@ -1,6 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 60%;
     margin-top: 10px;
 }
 
@@ -11,13 +20,10 @@ th, td {
 }
 
 th {
-    background-color: #eee;
-}
-#portfolio th {
     background-color: #4CAF50;
     color: white;
 }
 
-#portfolio tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #f2f2f2;
 }
