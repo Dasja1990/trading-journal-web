@@ -20,6 +20,7 @@ function renderPortfolio() {
     });
 }
 
+
 // Updated addTrade
 function addTrade(asset, amount, price) {
     const trade = {
