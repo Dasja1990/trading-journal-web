@@ -1,7 +1,7 @@
-// Portfolio table renderer
+const tradeHistory = [];
+
 function renderPortfolio() {
     const table = document.getElementById("portfolio");
-    
     table.innerHTML = `
         <tr>
             <th>Asset</th>
@@ -10,7 +10,6 @@ function renderPortfolio() {
             <th>Current Value</th>
         </tr>
     `;
-    
     tradeHistory.forEach(trade => {
         const row = table.insertRow();
         row.insertCell(0).textContent = trade.asset;
@@ -20,8 +19,6 @@ function renderPortfolio() {
     });
 }
 
-
-// Updated addTrade
 function addTrade(asset, amount, price) {
     const trade = {
         asset,
@@ -30,7 +27,9 @@ function addTrade(asset, amount, price) {
         date: new Date().toLocaleString()
     };
     tradeHistory.push(trade);
-    console.log("Trade added:", trade);
-
-    renderPortfolio(); 
+    renderPortfolio();
 }
+
+// Пример сделки для теста
+addTrade("BTC", 0.01, 45000);
+addTrade("ETH", 0.5, 3000);
