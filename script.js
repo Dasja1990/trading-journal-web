@@ -1,18 +1,35 @@
-// Trade history array to store trades
-const tradeHistory = [];
+// Portfolio table renderer
+function renderPortfolio() {
+    const table = document.getElementById("portfolio");
+    
+    table.innerHTML = `
+        <tr>
+            <th>Asset</th>
+            <th>Amount</th>
+            <th>Avg Entry Price</th>
+            <th>Current Value</th>
+        </tr>
+    `;
+    
+    tradeHistory.forEach(trade => {
+        const row = table.insertRow();
+        row.insertCell(0).textContent = trade.asset;
+        row.insertCell(1).textContent = trade.amount;
+        row.insertCell(2).textContent = trade.price;
+        row.insertCell(3).textContent = (trade.amount * trade.price).toFixed(2);
+    });
+}
 
-// Function to add trade and push to history
+// Updated addTrade
 function addTrade(asset, amount, price) {
     const trade = {
-        asset: asset,
-        amount: amount,
-        price: price,
+        asset,
+        amount,
+        price,
         date: new Date().toLocaleString()
     };
     tradeHistory.push(trade);
     console.log("Trade added:", trade);
-}
 
-// Example usage
-addTrade("BTC", 0.01, 45000);
-addTrade("ETH", 0.5, 3000);
+    renderPortfolio(); 
+}
