@@ -27,3 +27,18 @@ th {
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+#trade-form input {
+    margin: 5px;
+    padding: 5px;
+}
+
+#trade-form button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#trade-form button:hover {
+    background-color: #45a049;
+}
